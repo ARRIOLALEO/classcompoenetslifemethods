@@ -38,11 +38,14 @@ class Todos extends React.Component {
     copyState[index].completed = !copyState[index].completed;
     this.setState({ todos: copyState });
   };
-  
+  clearAllTodos = () =>{
+      this.setState({todos:[]})
+  }
   addAnewTodo = () => {};
   render() {
     return (
       <>
+      <button onClick={()=> this.clearAllTodos()}>clear all Todos</button>
         <ul>
           {this.state.todos.map((todo, index) => {
             return (
