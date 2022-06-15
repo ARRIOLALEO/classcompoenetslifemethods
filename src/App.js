@@ -1,25 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+import React from "react";
+import Todos from "./components/Todos";
+export default class App extends React.Component {
+  constructor() {
+    super();
+    this.state = { isMounted: false };
+  }
+  render() {
+    return (
+      <div className="App">
+        <button
+          onClick={() => this.setState({ isMounted: !this.state.isMounted })}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+          Logme in
+        </button>
+        {this.state.isMounted ? <Todos /> : null}
+      </div>
+    );
+  }
 }
-
-export default App;
